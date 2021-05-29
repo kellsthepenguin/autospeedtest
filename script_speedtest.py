@@ -2,6 +2,7 @@ import yaml
 import math
 from speedtest import Speedtest
 from apscheduler.schedulers.blocking import BlockingScheduler
+import time
 
 
 def job():
@@ -23,10 +24,12 @@ def job():
     mbDownload = math.floor(download / 1e+6)
     mbUpload = math.floor(upload / 1e+6)
 
+    timeStr = time.strftime('%c', time.localtime(time.time()))
+    
     if download < (originalSpeed / 4) or upload < (originalSpeed / 4):
-        print(f'다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps 아니 25%도 안나온다고요 ㅁㅊ')
+        print(f'[{timeStr}] 다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps 아니 25%도 안나온다고요 ㅁㅊ')
     else:
-        print(f'다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps')
+        print(f'[{timeStr}] 다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps')
 
     f.close()
 
