@@ -25,8 +25,8 @@ def job():
 
     if download < (originalSpeed / 4) or upload < (originalSpeed / 4):
         print(f'다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps 아니 25%도 안나온다고요 ㅁㅊ')
-
-    print(f'다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps')
+    else:
+        print(f'다운로드: {mbDownload}Mbps 업로드: {mbUpload}Mbps')
 
     f.close()
 
